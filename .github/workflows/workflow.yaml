@@ -1,0 +1,35 @@
+name: CI
+on:
+  push:
+  release:
+    types:
+      - release
+  pull_request:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    name: Build protocol
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt install capnproto
+          sudo npm install -g capnp-ts capnpc-ts capnpc-js typescript ts-node
+
+      - name: Build protocol
+        run: |
+          ./compile.sh
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: protocol
+          path: |
+            build/cpp/Display.capnp.c++
+            build/cpp/Display.capnp.h
+            build/js/Display.capnp.js
+            build/js/Display.capnp.d.ts

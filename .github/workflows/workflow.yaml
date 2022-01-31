@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install capnproto
-          npm install
+          sudo npm install -g capnp-ts capnpc-ts capnpc-js typescript ts-node
 
       - name: Build protocol
         run: |

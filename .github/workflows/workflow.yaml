@@ -22,6 +22,8 @@ jobs:
 
       - name: Build protocol
         run: |
+          mkdir -p build/cpp
+          mkdir -p build/js
           ./compile.sh
 
       - name: Upload Build Artifact

@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "capnp-ts": "^0.7.0",
+    "capnpc-js": "^0.5.1",
+    "capnpc-ts": "^0.7.0"
+  }
+}
